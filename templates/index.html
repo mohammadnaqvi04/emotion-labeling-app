@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Emotion Labeling Task — Instructions{% endblock %}
+{% block content %}
+<h1>Tweet Emotion Labeling Task</h1>
+
+<p>Thank you for participating in this study! You will read <strong>5 short tweets</strong>,
+one at a time, and for each one select the emotion you think it expresses.</p>
+
+<h2>Instructions</h2>
+<ul>
+  <li>You will see one tweet at a time.</li>
+  <li>Choose the <strong>single emotion</strong> that best describes what the writer of the tweet is feeling:
+    <strong>anger, fear, joy, love, sadness,</strong> or <strong>surprise</strong>.</li>
+  <li>There are no right or wrong answers — please go with your first impression.</li>
+  <li>The task should take about 2 minutes to complete.</li>
+  <li>Your responses are recorded anonymously under a random participant ID for research purposes.</li>
+</ul>
+
+<form action="{{ url_for('start') }}" method="post">
+  <button type="submit" class="primary-btn">Start Task</button>
+</form>
+{% endblock %}

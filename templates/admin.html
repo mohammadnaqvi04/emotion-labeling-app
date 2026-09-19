@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Collected Data{% endblock %}
+{% block content %}
+<h1>Collected Labeling Data</h1>
+<p>{{ rows | length }} labels recorded.</p>
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>Row ID</th>
+      <th>Participant ID</th>
+      <th>Tweet ID</th>
+      <th>Tweet Text</th>
+      <th>Label</th>
+      <th>Submitted At (UTC)</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in rows %}
+    <tr>
+      <td>{{ row.id }}</td>
+      <td>{{ row.participant_id }}</td>
+      <td>{{ row.tweet_id }}</td>
+      <td>{{ row.tweet_text }}</td>
+      <td>{{ row.label }}</td>
+      <td>{{ row.submitted_at }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

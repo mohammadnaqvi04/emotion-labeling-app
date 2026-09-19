@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Label Tweet {{ progress }} of {{ total }}{% endblock %}
+{% block content %}
+<h1>Tweet {{ progress }} of {{ total }}</h1>
+
+<div class="progress-bar">
+  <div class="progress-fill" style="width: {{ (progress / total * 100) | round(0) }}%;"></div>
+</div>
+
+<div class="tweet-card">
+  <p class="tweet-text">&ldquo;{{ tweet.text }}&rdquo;</p>
+</div>
+
+{% if error %}
+<p class="error">{{ error }}</p>
+{% endif %}
+
+<form action="{{ url_for('label_task') }}" method="post" class="emotion-form">
+  <p>Which emotion does this tweet express?</p>
+  <div class="emotion-options">
+    {% for emotion in emotions %}
+    <label class="emotion-option">
+      <input type="radio" name="emotion" value="{{ emotion }}" required />
+      {{ emotion | capitalize }}
+    </label>
+    {% endfor %}
+  </div>
+  <button type="submit" class="primary-btn">Submit &amp; Continue</button>
+</form>
+{% endblock %}
